@@ -9,12 +9,16 @@
 [![statsmodels](https://img.shields.io/badge/statsmodels-ARIMA%20%2F%20SARIMAX-4C72B0)](https://www.statsmodels.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-ML%20Pipeline-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit%20Cloud-FF4B4B?logo=streamlit&logoColor=white)](https://solar-energy-and-load-forecasting-jythcbbeupgmnkq5dxygcf.streamlit.app/)
 
 </div>
 
 <p align="center">
-  <img width="2579" height="1419" alt="architecture-overview" src="https://github.com/user-attachments/assets/b6e025b4-1c79-435c-b9e8-5d47305f85a4" />
+  <a href="https://solar-energy-and-load-forecasting-jythcbbeupgmnkq5dxygcf.streamlit.app/"><strong>▶ Try the live dashboard</strong></a>
+</p>
 
+<p align="center">
+  <img src="assets/architecture-overview.png" alt="Repository architecture: notebook pipeline and dashboard" width="850">
 </p>
 
 ---
@@ -115,6 +119,15 @@ Exact RMSE / MAE / R² values depend on your environment and aren't hardcoded he
 Global sidebar controls (confidence interval, Monte Carlo run count, currency, random seed, and one of four visual themes) apply across every tab, and everything is deterministic for a given seed.
 
 ## Getting started
+
+### Try it without installing anything
+
+The dashboard is deployed on Streamlit Community Cloud:
+**[solar-energy-and-load-forecasting-jythcbbeupgmnkq5dxygcf.streamlit.app](https://solar-energy-and-load-forecasting-jythcbbeupgmnkq5dxygcf.streamlit.app/)**
+
+Streamlit Cloud free-tier apps sleep after a period of inactivity — if it shows a "waking up" screen, wait a few seconds and it'll load.
+
+### Run it locally instead
 
 ### Prerequisites
 - Python 3.10+
