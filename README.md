@@ -13,8 +13,7 @@
 </div>
 
 <p align="center">
- <img width="2579" height="1419" alt="architecture-overview" src="https://github.com/user-attachments/assets/fedf03fb-4b4d-4bc6-a38e-646c0d94148e" />
-
+  <img src="assets/architecture-overview.png" alt="Repository architecture: notebook pipeline and dashboard" width="850">
 </p>
 
 ---
@@ -31,6 +30,7 @@
 - [Roadmap](#roadmap)
 - [Limitations & honest caveats](#limitations--honest-caveats)
 - [Tech stack](#tech-stack)
+- [Author](#author)
 - [License](#license)
 
 ---
@@ -46,7 +46,7 @@ This repository explores hourly electricity **load** and **solar generation** fo
 
 To keep this README honest rather than aspirational, here's exactly how the two pieces relate:
 
-> **The dashboard does not currently consume the CSV or the pickled model.** `app.py` generates its own seeded, synthetic 8,760-hour grid dataset at runtime (`build_grid_dataset`) and fits a lightweight ridge-regression model in-memory (`train_model`) purely so the app is self-contained and runs with zero setup. `TimeSeries_TotalSolarGen_and_Load_IT_2016.csv`, `forecasting_pipeline_model.pkl`, and `model_features.pkl` are produced and consumed **only** inside the notebook.
+> **The dashboard does not currently consume the CSV or a trained model.** `app.py` generates its own seeded, synthetic 8,760-hour grid dataset at runtime (`build_grid_dataset`) and fits a lightweight ridge-regression model in-memory (`train_model`) purely so the app is self-contained and runs with zero setup. `TimeSeries_TotalSolarGen_and_Load_IT_2016.csv` is used **only** inside the notebook. Running the notebook end-to-end also serializes `forecasting_pipeline_model.pkl` / `model_features.pkl` to disk — those two files are build artifacts, not part of this repo (they're `.gitignore`-friendly and regenerated locally whenever you re-run the notebook).
 
 This is a reasonable design for a demo (no external data dependency, fully reproducible via a random seed), but it means **the dashboard's numbers describe simulated grid behavior, not the real Italian 2016 dataset.** If you want the dashboard to score real data through the real trained pipeline, see [Roadmap](#roadmap).
 
@@ -57,11 +57,13 @@ Solar-Energy-and-Load-Forecasting/
 ├── app.py                                        # Streamlit dashboard (10 analytics modules)
 ├── Time_Series_ARIMA.ipynb                       # ARIMA / SARIMAX / ML research notebook
 ├── TimeSeries_TotalSolarGen_and_Load_IT_2016.csv # Hourly Italy load + solar, 2016 (8,784 rows)
-├── forecasting_pipeline_model.pkl                # Trained HistGradientBoostingRegressor (from notebook)
-├── model_features.pkl                            # Feature list matching the pickled pipeline
 ├── requirements.txt                              # Pinned dependencies for both components
 ├── LICENSE                                       # MIT
 └── README.md
+
+# Generated locally when you run the notebook (not committed to the repo):
+#   forecasting_pipeline_model.pkl   — trained HistGradientBoostingRegressor
+#   model_features.pkl               — feature list matching the pickled pipeline
 ```
 
 ## Dataset
@@ -166,6 +168,12 @@ Streamlit will open the app at `http://localhost:8501`. No dataset or model file
 | Dashboard | `streamlit`, `plotly` |
 | Data handling | `pandas`, `numpy` |
 | Persistence | `joblib` |
+
+## Author
+
+**Khusi Khanra**
+
+[![GitHub](https://img.shields.io/badge/GitHub-khusikhanra-181717?style=flat-square&logo=github)](https://github.com/khusikhanra)
 
 ## License
 
