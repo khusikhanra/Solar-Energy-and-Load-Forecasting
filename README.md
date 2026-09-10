@@ -13,7 +13,8 @@
 </div>
 
 <p align="center">
-  <img src="assets/architecture-overview.png" alt="Repository architecture: notebook pipeline and dashboard" width="850">
+  <img width="2579" height="1419" alt="architecture-overview" src="https://github.com/user-attachments/assets/b6e025b4-1c79-435c-b9e8-5d47305f85a4" />
+
 </p>
 
 ---
